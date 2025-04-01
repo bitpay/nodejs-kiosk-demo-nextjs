@@ -1,16 +1,16 @@
-import handler from '@/pages/api/invoices';
-import { createMocks } from 'node-mocks-http';
+import handler from "@/app/invoices/page";
+import logger from "@/utils/logger";
+import { Logger } from "winston";
 
-describe('/api/invoices', () => {
-  it('Should return invoices', async () => {
-    const { req, res } = createMocks({
-      method: 'GET',
-      query: {
-        page: 1,
-        limit: 10,
-      },
-    });
+describe("/api/invoices", () => {
+  it("Should return invoices", async () => {
+    jest.spyOn(logger, "info").mockReturnValue({} as unknown as Logger);
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => Promise.resolve({ data: { test: true } }),
+      })
+    ) as jest.Mock;
 
-    await handler(req, res);
+    await handler({ searchParams: Promise.resolve({}) });
   });
 });

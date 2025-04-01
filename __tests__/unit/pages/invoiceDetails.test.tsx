@@ -1,19 +1,24 @@
-import InoviceDetails from '@/pages/invoices/[id]/page';
-import { Invoice } from '@prisma/client';
-import { render } from '@testing-library/react';
+import InvoiceDetails from "@/components/InvoiceDetails";
+import { Invoice } from "@prisma/client";
+import { render } from "@testing-library/react";
+import EventSource from "eventsourcemock";
 
-describe('Invoice Details Page', () => {
+Object.defineProperty(window, "EventSource", {
+  value: EventSource,
+});
+
+describe("Invoice Details Page", () => {
   const INVOICE_DETAILS: Invoice = {
-    bitpay_guid: 'bitpay_guid_123',
-    bitpay_id: 'bitpay_id_123',
-    bitpay_order_id: 'bitpay_order_id_123',
-    bitpay_url: 'http://bitpay_url.com',
+    bitpay_guid: "bitpay_guid_123",
+    bitpay_id: "bitpay_id_123",
+    bitpay_order_id: "bitpay_order_id_123",
+    bitpay_url: "http://bitpay_url.com",
     created_date: new Date(),
-    currency_code: 'USD',
+    currency_code: "USD",
     expiration_time: new Date(),
     id: 1,
     price: 100,
-    status: 'new',
+    status: "new",
     pos_data_json: null,
     token: null,
     merchant_name: null,
@@ -25,7 +30,7 @@ describe('Invoice Details Page', () => {
     invoice_buyer_id: null,
   };
 
-  it('Should render properly', () => {
-    render(<InoviceDetails data={INVOICE_DETAILS} />);
+  it("Should render properly", () => {
+    render(<InvoiceDetails invoice={INVOICE_DETAILS} />);
   });
 });

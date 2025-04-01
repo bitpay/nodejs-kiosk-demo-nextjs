@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import config from '@/config';
-import Image from 'next/image';
-import { FormEvent, useEffect, useState } from 'react';
-import Error from './Error';
-import { Invoice } from '@prisma/client';
+import config from "@/config";
+import { Invoice } from "@prisma/client";
+import Image from "next/image";
+import { FormEvent, useEffect, useState } from "react";
+import Error from "./Error";
 
 export default function Donation() {
   const denominations = config.bitpay.donation.denominations;
@@ -39,7 +39,7 @@ export default function Donation() {
     setError(null);
 
     if (!formData.price) {
-      return setError('Please choose donation amount');
+      return setError("Please choose donation amount");
     }
 
     if (
@@ -59,9 +59,9 @@ export default function Donation() {
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/create-invoice`,
         {
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
-          method: 'POST',
+          method: "POST",
           body: JSON.stringify(formData),
         }
       );
@@ -92,7 +92,7 @@ export default function Donation() {
     return setFormData((prevFormData) => ({
       ...prevFormData,
       price: selectedDenomination?.value,
-      currency: 'USD',
+      currency: "USD",
     }));
   }, [selectedDenomination?.value]);
 
@@ -116,7 +116,7 @@ export default function Donation() {
               }
               onClick={() =>
                 setSelectedDenomination({
-                  type: 'button',
+                  type: "button",
                   index: i,
                   value: denomination,
                 })
@@ -132,21 +132,21 @@ export default function Donation() {
               type="text"
               placeholder="Other (Maximum $2,800)"
               style={
-                selectedDenomination?.type === 'input'
+                selectedDenomination?.type === "input"
                   ? selectedDenominationStyles
                   : {}
               }
-              className="w-full p-4 text-left transition-all bg-[#E6E9ED] border-0 focus:placeholder-white"
+              className="w-full shadow appearance-none border rounded w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               onFocus={(e) =>
                 setSelectedDenomination({
-                  type: 'input',
+                  type: "input",
                   index: null,
                   value: e.target.value,
                 })
               }
               onChange={(e) =>
                 setSelectedDenomination({
-                  type: 'input',
+                  type: "input",
                   index: null,
                   value: e.target.value,
                 })
@@ -159,7 +159,7 @@ export default function Donation() {
         <div className="space-y-3">
           {buyerFields.map((field) => {
             switch (field.type) {
-              case 'text':
+              case "text":
                 return (
                   <div key={field.id} className="flex items-center">
                     <label className="w-1/3" htmlFor={field.id}>
@@ -167,7 +167,7 @@ export default function Donation() {
                     </label>
                     <input
                       required={field.required}
-                      className="w-full md:w-1/3"
+                      className="w-full md:w-1/3 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       type={field.type}
                       name={field.name}
                       id={field.id}
@@ -184,7 +184,7 @@ export default function Donation() {
                   </div>
                 );
 
-              case 'email':
+              case "email":
                 return (
                   <div key={field.id} className="flex items-center">
                     <label className="w-1/3" htmlFor={field.id}>
@@ -192,7 +192,7 @@ export default function Donation() {
                     </label>
                     <input
                       required={field.required}
-                      className="w-full md:w-1/3"
+                      className="w-full md:w-1/3 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       type={field.type}
                       name={field.name}
                       id={field.id}
@@ -209,7 +209,7 @@ export default function Donation() {
                   </div>
                 );
 
-              case 'select':
+              case "select":
                 return (
                   <div key={field.id} className="flex items-center">
                     <label className="w-1/3" htmlFor={field.id}>
@@ -218,7 +218,7 @@ export default function Donation() {
                     <select
                       name={field.name}
                       required={field.required}
-                      className="w-full md:w-1/3"
+                      className="w-full md:w-1/3 block bg-white border text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray"
                       id={field.id}
                       onChange={(e) =>
                         setFormData({
@@ -244,7 +244,7 @@ export default function Donation() {
           })}
           {posDataFields.map((field) => {
             switch (field.type) {
-              case 'text':
+              case "text":
                 return (
                   <div key={field.id} className="flex items-center">
                     <label className="w-1/3" htmlFor={field.id}>
@@ -252,7 +252,7 @@ export default function Donation() {
                     </label>
                     <input
                       required={field.required}
-                      className="w-full md:w-1/3"
+                      className="w-full md:w-1/3 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       type={field.type}
                       name={field.name}
                       id={field.id}
@@ -266,7 +266,7 @@ export default function Donation() {
                   </div>
                 );
 
-              case 'email':
+              case "email":
                 return (
                   <div key={field.id} className="flex items-center">
                     <label className="w-1/3" htmlFor={field.id}>
@@ -274,7 +274,7 @@ export default function Donation() {
                     </label>
                     <input
                       required={field.required}
-                      className="w-full md:w-1/3"
+                      className="w-full md:w-1/3 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       type={field.type}
                       name={field.name}
                       id={field.id}
@@ -288,7 +288,7 @@ export default function Donation() {
                   </div>
                 );
 
-              case 'select':
+              case "select":
                 return (
                   <div key={field.id} className="flex items-center">
                     <label className="w-1/3" htmlFor={field.id}>
@@ -297,7 +297,7 @@ export default function Donation() {
                     <select
                       name={field.name}
                       required={field.required}
-                      className="w-full md:w-1/3"
+                      className="w-full md:w-1/3 block bg-white border text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray"
                       id={field.id}
                       onChange={(e) =>
                         setFormData({
@@ -326,7 +326,7 @@ export default function Donation() {
         <div className="flex justify-center">
           <button
             disabled={loading}
-            className={loading ? 'opacity-70' : ''}
+            className={loading ? "opacity-70" : ""}
             type="submit"
           >
             <Image

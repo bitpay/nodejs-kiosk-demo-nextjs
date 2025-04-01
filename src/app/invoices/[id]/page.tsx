@@ -1,15 +1,17 @@
-import InvoiceDetails from '@/components/InvoiceDetails';
-import PageHeader from '@/components/PageHeader';
-import logger from '@/utils/logger';
-import { Invoice as InvoiceDto } from '@prisma/client';
-import { redirect } from 'next/navigation';
+import InvoiceDetails from "@/components/InvoiceDetails";
+import PageHeader from "@/components/PageHeader";
+import logger from "@/utils/logger";
+import { Invoice as InvoiceDto } from "@prisma/client";
+import { redirect } from "next/navigation";
 
-export default async function Invoice(props: { params: Promise<{ id: string }> }) {
+export default async function Invoice(props: {
+  params: Promise<{ id: string }>;
+}) {
   const params = await props.params;
   const invoice = await getInvoice(parseInt(params.id));
 
   if (!invoice) {
-    redirect('/invoices');
+    redirect("/invoices");
   }
 
   return (
@@ -29,8 +31,8 @@ const getInvoice = async (id: number) => {
   const { data } = await res.json();
 
   logger.info({
-    code: 'INVOICE_GET',
-    message: 'Loaded invoice',
+    code: "INVOICE_GET",
+    message: "Loaded invoice",
     context: {
       id,
     },

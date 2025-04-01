@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import config from '@/config';
-import { FormEvent, useState } from 'react';
-import { setInitialFormData } from '@/utils';
-import { Invoice } from '@prisma/client';
-import Error from './Error';
+import config from "@/config";
+import { setInitialFormData } from "@/utils";
+import { Invoice } from "@prisma/client";
+import Image from "next/image";
+import { FormEvent, useState } from "react";
+import Error from "./Error";
 
 export default function Form() {
   const initialFormData = setInitialFormData();
@@ -21,9 +21,9 @@ export default function Form() {
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/create-invoice`,
         {
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
-          method: 'POST',
+          method: "POST",
           body: JSON.stringify(formData),
         }
       );
@@ -61,7 +61,7 @@ export default function Form() {
         <div>
           {formFields.map((field) => {
             switch (field.type) {
-              case 'select':
+              case "select":
                 return (
                   <div className="mt-4" key={field.id}>
                     <label
@@ -77,8 +77,8 @@ export default function Form() {
                       id={field.id}
                       name={field.name}
                       required={field.required}
-                      value={(formData && formData[field.id]) || ''}
-                      className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                      value={(formData && formData[field.id]) || ""}
+                      className="block w-full bg-white border text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray"
                     >
                       <option value="" hidden></option>
                       {field.options.map((option) => {
@@ -91,7 +91,7 @@ export default function Form() {
                     </select>
                   </div>
                 );
-              case 'fieldset':
+              case "fieldset":
                 return (
                   <div className="mt-4" key={field.id}>
                     <fieldset>
@@ -125,7 +125,7 @@ export default function Form() {
                     </fieldset>
                   </div>
                 );
-              case 'text':
+              case "text":
                 return (
                   <div className="mt-4" key={field.id}>
                     <label
@@ -142,17 +142,17 @@ export default function Form() {
                             [field.id]: e.target.value,
                           })
                         }
-                        value={(formData && formData[field.id]) || ''}
+                        value={(formData && formData[field.id]) || ""}
                         type="text"
                         name={field.name}
-                        className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id={field.id}
                         required={field.required}
                       />
                     </div>
                   </div>
                 );
-              case 'price':
+              case "price":
                 return (
                   <div className="mt-4" key={field.id}>
                     <label
@@ -162,33 +162,30 @@ export default function Form() {
                       {field.label}
                     </label>
                     <div className="mt-1 relative rounded-md shadow-sm">
-                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <span className="text-gray-500 sm:text-sm"> $ </span>
-                      </div>
-                      <input
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            [field.id]: e.target.value,
-                          })
-                        }
-                        type="number"
-                        id={field.id}
-                        value={(formData && formData[field.id]) || ''}
-                        name={field.name}
-                        className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
-                        placeholder="0.00"
-                        required={field.required}
-                        step="any"
-                        min="0"
-                      />
-                      <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                      <div className="flex flex-row">
                         <span
-                          className="text-gray-500 sm:text-sm"
-                          id={field.id + '-currency'}
+                          className="flex items-center bg-grey-lighter border border-e-0 rounded rounded-r-none px-3 font-bold text-grey-darker"
+                          id={field.id + "-currency"}
                         >
-                          {field.currency}
+                          $
                         </span>
+                        <input
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              [field.id]: e.target.value,
+                            })
+                          }
+                          type="number"
+                          id={field.id}
+                          value={(formData && formData[field.id]) || ""}
+                          name={field.name}
+                          className="shadow appearance-none border border-s-0  rounded rounded-s-none w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                          placeholder="0.00"
+                          required={field.required}
+                          step="any"
+                          min="0"
+                        />
                       </div>
                     </div>
                   </div>
@@ -212,7 +209,7 @@ export default function Form() {
                         }
                         type="text"
                         name={field.name}
-                        className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id={field.id}
                         required={field.required}
                       />
@@ -227,7 +224,7 @@ export default function Form() {
           <button
             type="submit"
             disabled={loading}
-            className={loading ? 'opacity-70' : ''}
+            className={loading ? "opacity-70" : ""}
           >
             <Image
               width={188}

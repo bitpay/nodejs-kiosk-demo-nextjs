@@ -1,9 +1,9 @@
-import { invoiceService } from '@/services/invoice';
+import { invoiceService } from "@/services/invoice";
 
-describe('Invoice Service', () => {
+describe("Invoice Service", () => {
   const service = invoiceService;
 
-  it('Should be defined', () => {
+  it("Should be defined", () => {
     expect(service).toBeDefined();
   });
 });

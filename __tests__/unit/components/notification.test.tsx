@@ -1,17 +1,17 @@
-import Notification from '@/components/Notification';
-import { render } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import Notification from "@/components/Notification";
+import { render } from "@testing-library/react";
+import { act } from "react";
 
-describe('Notification Component', () => {
-  it('Should render properly', async () => {
+describe("Notification Component", () => {
+  it("Should render properly", async () => {
     await act(async () => {
       render(
         <Notification
           eventData={{
             eventCode: 0,
-            eventName: 'invoice_expired',
+            eventName: "invoice_expired",
             invoice: {},
-            message: { type: 'Bad', content: null },
+            message: { type: "Bad", content: null },
             showed: false,
           }}
           onClose={() => {}}

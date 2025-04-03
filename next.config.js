@@ -1,15 +1,15 @@
-const withYAML = require('next-yaml');
+const withYAML = require("next-yaml");
 
 const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'via.placeholder.com',
+        protocol: "https",
+        hostname: "placehold.co",
       },
       {
-        protocol: 'https',
-        hostname: 'bitpay.com',
+        protocol: "https",
+        hostname: "bitpay.com",
       },
     ],
   },

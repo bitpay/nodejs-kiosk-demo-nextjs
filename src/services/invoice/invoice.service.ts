@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { bitpayClient } from '@/lib/bitpay';
-import prisma from '@/lib/prisma';
-import { Invoice } from 'bitpay-sdk/dist/Model';
-import { Prisma } from '@prisma/client';
-import { v4 as uuidv4 } from 'uuid';
-import { SupportedTransactionCurrency } from 'bitpay-sdk/dist/Model/Invoice/SupportedTransactionCurrency';
-import config from '@/config';
-import { Buyer } from 'bitpay-sdk/dist/Model/Invoice/Buyer';
+import config from "@/config";
+import { bitpayClient } from "@/lib/bitpay";
+import prisma from "@/lib/prisma";
+import { Prisma } from "@prisma/client";
+import { Invoice } from "bitpay-sdk/dist/Model";
+import { Buyer } from "bitpay-sdk/dist/Model/Invoice/Buyer";
+import { SupportedTransactionCurrency } from "bitpay-sdk/dist/Model/Invoice/SupportedTransactionCurrency";
+import { v4 as uuidv4 } from "uuid";
 
 export interface InvoiceCreateInput {
   price: string;
@@ -41,7 +41,7 @@ export class InvoiceService {
   async createInvoice(payload: InvoiceCreateInput) {
     const data = new Invoice(parseFloat(payload.price), payload.currency);
 
-    if (config.bitpay.mode === 'donation') {
+    if (config.bitpay.mode === "donation") {
       if (payload.buyer) {
         data.buyer = payload.buyer;
       }
@@ -50,11 +50,11 @@ export class InvoiceService {
     }
 
     data.posData = JSON.stringify(payload);
-    data.transactionSpeed = 'medium';
+    data.transactionSpeed = "medium";
     data.itemDesc =
-      (config.bitpay.mode === 'standard' && 'Standard') ||
-      (config.bitpay.mode === 'donation' && 'Donation') ||
-      'Example';
+      (config.bitpay.mode === "standard" && "Standard") ||
+      (config.bitpay.mode === "donation" && "Donation") ||
+      "Example";
     data.orderId = uuidv4();
     data.notificationURL = `${process.env.NEXT_PUBLIC_API_BASE_URL}/invoices/webhooks`;
 
@@ -317,7 +317,7 @@ export class InvoiceService {
         take: limit,
         skip: startOffset,
         orderBy: {
-          id: 'desc',
+          id: "desc",
         },
       }),
 

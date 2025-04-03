@@ -1,26 +1,29 @@
-import handler from '@/pages/api/create-invoice';
-import { invoiceService } from '@/services/invoice';
-import logger from '@/utils/logger';
-import { createMocks } from 'node-mocks-http';
-import { Logger } from 'winston';
+/**
+ * @jest-environment node
+ */
 
-const loggerErrorSpy = jest
-  .spyOn(logger, 'error')
-  .mockReturnValue({} as unknown as Logger);
+import { POST as handler } from "@/app/api/create-invoice/route";
+import { invoiceService } from "@/services/invoice";
+import logger from "@/utils/logger";
+import { NextRequest } from "next/server";
+import { Logger } from "winston";
 
-describe('/api/create-invoice', () => {
-  it('Sould return successful response', async () => {
-    const { req, res } = createMocks({
-      method: 'POST',
-      body: {
-        price: 100,
-        currency: 'USD',
-      },
-    });
+describe("/api/create-invoice", () => {
+  it("Sould return successful response", async () => {
+    jest.spyOn(logger, "info").mockReturnValue({} as unknown as Logger);
+    const req: NextRequest = {
+      method: "POST",
+      body: {},
+      headers: {},
+      json: async () => ({ name: "Item 3" }),
+    } as NextRequest;
 
-    const createInvoiceSpy = jest.spyOn(invoiceService, 'createInvoice');
+    const createInvoiceSpy = jest
+      .spyOn(invoiceService, "createInvoice")
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      .mockReturnValue({ bitpay_id: "test" } as any);
 
-    await handler(req, res);
+    await handler(req);
     expect(createInvoiceSpy).toHaveBeenCalled();
   });
 });

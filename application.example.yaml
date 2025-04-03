@@ -5,51 +5,51 @@ bitpay:
   mode: standard
   design:
     hero:
-      bgColor: '#36454F'
-      title: 'BitPay Demo ts'
-      body: 'Mattis amet hendrerit dolor, quisque lorem pharetra. Pellentesque lacus nisi urna, arcu sociis eu. Orci vel lectus nisl eget eget ut consectetur. Sit justo viverra non adipisicing elit distinctio.'
-    logo: 'https://via.placeholder.com/300x75?text=LOGO'
+      bgColor: "#36454F"
+      title: "BitPay Demo ts"
+      body: "Mattis amet hendrerit dolor, quisque lorem pharetra. Pellentesque lacus nisi urna, arcu sociis eu. Orci vel lectus nisl eget eget ut consectetur. Sit justo viverra non adipisicing elit distinctio."
+    logo: "https://placehold.co/300x75.png?text=LOGO"
     posData:
       fields:
-        - type: 'select'
+        - type: "select"
           required: true
-          id: 'store'
-          name: 'store'
-          label: 'Store'
+          id: "store"
+          name: "store"
+          label: "Store"
           options:
-            - id: 'store-1'
-              label: 'Store 1'
-              value: 'store-1'
-            - id: 'store-2'
-              label: 'Store 2'
-              value: 'store-2'
-        - type: 'fieldset'
+            - id: "store-1"
+              label: "Store 1"
+              value: "store-1"
+            - id: "store-2"
+              label: "Store 2"
+              value: "store-2"
+        - type: "fieldset"
           required: true
-          id: 'register'
-          name: 'register'
-          label: 'Register #'
+          id: "register"
+          name: "register"
+          label: "Register #"
           options:
-            - id: 'register-1'
-              label: '1'
-              value: '1'
-            - id: 'register-2'
-              label: '2'
-              value: '2'
-        - type: 'text'
+            - id: "register-1"
+              label: "1"
+              value: "1"
+            - id: "register-2"
+              label: "2"
+              value: "2"
+        - type: "text"
           required: true
-          id: 'reg_transaction_no'
-          name: 'reg_transaction_no'
-          label: 'Reg/Transaction #'
-        - type: 'price'
+          id: "reg_transaction_no"
+          name: "reg_transaction_no"
+          label: "Reg/Transaction #"
+        - type: "price"
           required: true
-          id: 'price'
-          name: 'price'
-          currency: 'USD'
-          label: 'price'
+          id: "price"
+          name: "price"
+          currency: "USD"
+          label: "price"
   donation:
-    footerText: 'Contributions or gifts to RECIPIENT are not tax deductible. Contributions are limited to $10,000 per PAC per election cycle ($5,000 primary and $5,000 general) and $5,600 per individual per election cycle ($2,800 primary and $2,800 general). Contributions from the general treasury funds of corporations, labor unions, and national banks are prohibited. Federal contractors and foreign nationals who are not admitted for permanent residence in the United States are prohibited from making contributions. All contributions must be from personal funds and may not be reimbursed or paid by any other person. Federal law requires us to use our best efforts to collect and report the name, mailing address, occupation, and name of employer of individuals whose contributions exceed $200 in an election cycle.'
-    buttonSelectedBgColor: '#2a3f90'
-    buttonSelectedTextColor: '#ffffff'
+    footerText: "Contributions or gifts to RECIPIENT are not tax deductible. Contributions are limited to $10,000 per PAC per election cycle ($5,000 primary and $5,000 general) and $5,600 per individual per election cycle ($2,800 primary and $2,800 general). Contributions from the general treasury funds of corporations, labor unions, and national banks are prohibited. Federal contractors and foreign nationals who are not admitted for permanent residence in the United States are prohibited from making contributions. All contributions must be from personal funds and may not be reimbursed or paid by any other person. Federal law requires us to use our best efforts to collect and report the name, mailing address, occupation, and name of employer of individuals whose contributions exceed $200 in an election cycle."
+    buttonSelectedBgColor: "#2a3f90"
+    buttonSelectedTextColor: "#ffffff"
     enableOther: true
     denominations:
       - 2800
@@ -59,35 +59,35 @@ bitpay:
       - 50
     buyer:
       fields:
-        - type: 'text'
+        - type: "text"
           required: true
-          id: 'name'
-          name: 'name'
-          label: 'Name'
+          id: "name"
+          name: "name"
+          label: "Name"
         - type: text
           required: true
-          id: 'address1'
-          name: 'address1'
-          label: 'Address'
-        - type: 'text'
+          id: "address1"
+          name: "address1"
+          label: "Address"
+        - type: "text"
           required: false
-          id: 'address2'
-          name: 'address2'
-          label: 'Address 2'
-        - type: 'text'
+          id: "address2"
+          name: "address2"
+          label: "Address 2"
+        - type: "text"
           required: true
-          id: 'city'
-          name: 'locality'
-          label: 'City'
-        - type: 'select'
+          id: "city"
+          name: "locality"
+          label: "City"
+        - type: "select"
           required: true
-          id: 'state'
-          name: 'region'
-          label: 'State'
+          id: "state"
+          name: "region"
+          label: "State"
           options:
-            - id: '-'
-              label: '--Select a state--'
-              value: ''
+            - id: "-"
+              label: "--Select a state--"
+              value: ""
             - id: AL
               label: Alabama
               value: AL
@@ -242,42 +242,42 @@ bitpay:
               label: Wyoming
               value: WY
 
-        - type: 'text'
+        - type: "text"
           required: true
-          id: 'zip'
-          name: 'postalCode'
-          label: 'ZIP'
-        - type: 'text'
+          id: "zip"
+          name: "postalCode"
+          label: "ZIP"
+        - type: "text"
           required: true
-          id: 'phone'
-          name: 'phone'
-          label: 'Phone Number'
-        - type: 'email'
+          id: "phone"
+          name: "phone"
+          label: "Phone Number"
+        - type: "email"
           required: true
-          id: 'email'
-          name: 'email'
-          label: 'Email'
+          id: "email"
+          name: "email"
+          label: "Email"
     posData:
       fields:
-        - type: 'text'
+        - type: "text"
           required: true
-          id: 'employer'
-          name: 'employer'
-          label: 'Employer'
-        - type: 'text'
+          id: "employer"
+          name: "employer"
+          label: "Employer"
+        - type: "text"
           required: true
-          id: 'occupation'
-          name: 'occupation'
-          label: 'Occupation'
-        - type: 'select'
+          id: "occupation"
+          name: "occupation"
+          label: "Occupation"
+        - type: "select"
           required: true
-          id: 'fund'
-          name: 'fund'
-          label: 'Fund'
+          id: "fund"
+          name: "fund"
+          label: "Fund"
           options:
-            - id: 'fund-1'
-              label: 'Fund #1'
-              value: 'fund-1'
-            - id: 'fund-2'
-              label: 'Fund #2'
-              value: 'fund-2'
+            - id: "fund-1"
+              label: "Fund #1"
+              value: "fund-1"
+            - id: "fund-2"
+              label: "Fund #2"
+              value: "fund-2"

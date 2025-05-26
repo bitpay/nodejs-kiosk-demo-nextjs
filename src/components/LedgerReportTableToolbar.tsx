@@ -1,10 +1,12 @@
 "use client";
 
 import { supportedCurrencies } from "@/utils/currencies";
+const CSVLink = dynamic(() => import("react-csv").then((mod) => mod.CSVLink), { ssr: false });
+
 import { LedgerEntryInterface } from "bitpay-sdk/dist/Model";
+import dynamic from "next/dynamic";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ChangeEvent, useCallback } from "react";
-import { CSVLink } from "react-csv";
 
 export default function LedgerReportTableToolbar({
   startDate,
@@ -69,7 +71,7 @@ export default function LedgerReportTableToolbar({
             Start Date
           </label>
           <input
-            className="block w-full shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="block shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="startDate"
             name="startDate"
             type="date"
@@ -85,7 +87,7 @@ export default function LedgerReportTableToolbar({
             End Date
           </label>
           <input
-            className="block w-full shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="block shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="endDate"
             name="endDate"
             type="date"

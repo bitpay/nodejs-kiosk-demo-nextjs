@@ -121,7 +121,7 @@ export async function POST(req: NextRequest) {
         message: "Failed to validate IPN",
         context: {
           errorMessage: e.message,
-          stackTeace: e,
+          stackTrace: e,
         },
       });
 

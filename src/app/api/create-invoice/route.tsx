@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
   } catch (e) {
     logger.error({
       code: "INVOICE_CREATE_FAIL",
-      message: "Faoled to create invoice",
+      message: "Failed to create invoice",
       context: {
         errorMessage: e instanceof Error ? e.message : "Unknown error.",
         stackTrace: e,

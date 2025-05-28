@@ -19,9 +19,11 @@ export default function Notification({
     ),
   };
 
-  if (!show) {
-    onClose();
-  }
+  useEffect(() => {
+    if (!show) {
+      onClose();
+    }
+  }, [show, onClose]);
 
   useEffect(() => {
     const timer = setTimeout(() => {

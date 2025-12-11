@@ -19,7 +19,7 @@
     "@tailwindcss/postcss": "4.1.13",
     "bitpay-sdk": "6.3.1",
     "dayjs": "1.11.18",
-    "next": "15.5.2",
+    "next": "15.5.8",
     "next-yaml": "1.0.1",
     "react": "19.1.1",
     "react-csv": "2.2.2",

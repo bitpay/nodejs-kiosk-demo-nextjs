@@ -52,7 +52,7 @@
     "jest-transform-yaml": "1.2.0",
     "jsdom": "29.0.2",
     "node-mocks-http": "1.17.2",
-    "postcss": "8.5.9",
+    "postcss": "8.5.23",
     "prisma": "7.7.0",
     "tailwindcss": "4.2.2",
     "ts-node": "10.9.2",

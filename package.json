@@ -53,7 +53,7 @@
     "jsdom": "29.0.2",
     "node-mocks-http": "1.17.2",
     "postcss": "8.5.9",
-    "prisma": "7.7.0",
+    "prisma": "7.9.1",
     "tailwindcss": "4.2.2",
     "ts-node": "10.9.2",
     "typescript": "6.0.2",

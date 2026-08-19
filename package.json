@@ -22,7 +22,7 @@
     "@tailwindcss/postcss": "4.2.2",
     "bitpay-sdk": "8.0.3",
     "dayjs": "1.11.20",
-    "next": "16.2.3",
+    "next": "16.2.11",
     "react": "19.2.5",
     "react-csv": "2.2.2",
     "react-dom": "19.2.5",

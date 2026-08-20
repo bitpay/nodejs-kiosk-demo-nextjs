@@ -16,18 +16,18 @@
     "@headlessui/react": "2.2.10",
     "@heroicons/react": "2.2.0",
     "@libsql/client": "0.17.2",
-    "@prisma/adapter-libsql": "7.7.0",
-    "@prisma/client": "7.7.0",
+    "@prisma/adapter-libsql": "7.9.1",
+    "@prisma/client": "7.9.1",
     "@tailwindcss/forms": "0.5.11",
     "@tailwindcss/postcss": "4.2.2",
     "bitpay-sdk": "8.0.3",
     "dayjs": "1.11.20",
-    "next": "16.2.3",
+    "next": "16.3.1",
     "react": "19.2.5",
     "react-csv": "2.2.2",
     "react-dom": "19.2.5",
-    "sharp": "0.34.5",
-    "uuid": "10.0.0",
+    "sharp": "0.35.3",
+    "uuid": "11.1.1",
     "winston": "3.19.0"
   },
   "devDependencies": {
@@ -52,8 +52,8 @@
     "jest-transform-yaml": "1.2.0",
     "jsdom": "29.0.2",
     "node-mocks-http": "1.17.2",
-    "postcss": "8.5.9",
-    "prisma": "7.7.0",
+    "postcss": "8.5.26",
+    "prisma": "7.9.1",
     "tailwindcss": "4.2.2",
     "ts-node": "10.9.2",
     "typescript": "6.0.2",
@@ -66,6 +66,7 @@
     "bitpay-sdk": {
       "lodash": "4.18.1"
     },
-    "@hono/node-server": "1.19.14"
+    "js-yaml": "^4.3.1",
+    "deepmerge-ts": "^8.0.1"
   }
 }
